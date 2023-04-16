@@ -1,0 +1,16 @@
+
+Three types of errors - 
+1. Syntax errors
+2. Runtime errors
+3. Logical Errors
+
+
+How to find the errors and fix each of them - 
+
+1. Syntax Errors -  Ide and compiler will throw this error so it is easy to find.
+    
+
+2. Runtime errors - Errors are thrown at runtime, so bit hard to detect intially.
+
+3. Logical Errors - No error will be thrown and but app will behave unexpectedly. 
+                    So we have to use debugging tools like run in debug mode to detect the errors.
