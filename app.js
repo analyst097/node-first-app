@@ -1,11 +1,11 @@
 const http = require('http')
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser')
 const adminRoutes = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 const app = express();
-const connectToDb = require('./database');
-const { log } = require('console');
+const connectToDb = require('./utils/database').connectToDb;
 //middlewares
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,11 +14,10 @@ app.use('/admin', adminRoutes)
 app.use('/shop', shopRoutes)
 
 app.use((req, res, next) => {
-    res.status(404).send('<h1>Page not found :(</h1>')
+    res.status(404).sendFile(path.join(__dirname, 'views', 'page-not-found.html'))
 });
 
-connectToDb(client => {
-    console.log(client);
+connectToDb(() => {
     app.listen(3000)
 })
 
